@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <span id="num">0</span>
+  <button onclick="inc()">incrementar</button>
+  <button onclick="dec()">decrementar</button>
+  <button onclick="zero()">zerar</button>
+
+  <script>
+     let numero = document.getElementById('num').innerHTML;
+    function inc(){
+    numero++;
+    document.getElementById('num').innerHTML = numero;
+    }
+     function dec(){
+    numero--;
+    document.getElementById('num').innerHTML = numero;
+    }
+    function zero(){
+      document.getElementById('num').innerHTML ='0'
+    } 
+  </script>
+</body>
+</html>

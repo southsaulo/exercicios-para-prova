@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+  <input id="idade" placeholder="digite sua idade">
+  <button onclick="entrar()">verificar</button>
+  <p id="p">...</p>
+  <script>
+    function entrar(){
+      if(document.getElementById('idade').value === ""){
+      alert("preencha a idade")
+      return;
+      }
+      if(document.getElementById('idade').value >= "18"){
+      document.getElementById('p').innerHTML = "maior de idade";
+      }else{ 
+      document.getElementById('p').innerHTML = "menor de idade";
+      }
+    }
+  </script>
+  </ul>
+</body>
+</html>
