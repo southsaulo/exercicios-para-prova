@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="produtos">
+        <div class="produto" >
+            <img src="https://placehold.co/150x120?text=aspirador"
+                 alt="Notebook">
+                 <button id="ad" onclick="adicionarCarrinho(0)">adicionar ao carrinho</button><button onclick="del()">tirar do carrinho</button>
+            <h3>aspirador</h3>
+            <p>R$ 500</p>
+        </div>
+
+        <div class="produto" >
+            <img src="https://placehold.co/150x120?text=nintendo switch"
+                 alt="Celular">
+                 <button id="ad" onclick="adicionarCarrinho(1)" >adicionar ao carrinho</button><button onclick="del()">tirar do carrinho</button>
+            <h3>nintendo switch</h3>
+            <p>R$ 1.500,00</p>
+        </div>
+
+        <div class="produto" >
+            <img src="https://placehold.co/150x120?text=betterraba"
+                 alt="Fone de ouvido">
+                 <button id="ad" onclick="adicionarCarrinho(2)">adicionar ao carrinho</button><button onclick="del()">tirar do carrinho</button>
+            <h3>beterraba</h3>
+            <p>R$ 25</p>
+        </div>
+
+    </div>
+
+    <button onclick="mostrarCarrinho()">
+        Ver carrinho
+    </button>
+    <div id="carrinho"></div>
+
+    <script>
+        // Vetor com os produtos da loja
+        const produtos = [
+            { nome: "apirador", preco: 500 },
+            { nome: "nintendo switch", preco: 1500 },
+            { nome: "beterraba", preco: 25 }
+        ];
+
+        // Vetor que armazenará os produtos escolhidos
+        const carrinho = [];
+
+        // Adiciona um produto ao carrinho
+        function adicionarCarrinho(indice) {
+            carrinho.push(produtos[indice]);
+
+            alert(produtos[indice].nome + " adicionado ao carrinho!");
+        }
+        // Mostra os produtos do carrinho
+        function mostrarCarrinho() {
+            const areaCarrinho = document.querySelector("#carrinho");
+
+            areaCarrinho.innerHTML = "<h2>Meu Carrinho</h2>";
+
+            if (carrinho.length === 0) {
+                areaCarrinho.innerHTML += "<p>O carrinho está vazio.</p>";
+                return;
+            }
+
+            let total = 0;
+
+            for (let i = 0; i < carrinho.length; i++) {
+                areaCarrinho.innerHTML += `
+                    <p>
+                        ${carrinho[i].nome} -
+                        R$ ${carrinho[i].preco.toFixed(2).replace(".", ",")}
+                    </p>
+                `;
+
+                total += carrinho[i].preco;
+            }
+
+            areaCarrinho.innerHTML += `
+                <hr>
+                <h3>
+                    Total: R$ ${total.toFixed(2).replace(".", ",")}
+                </h3>
+            `;
+        }
+        function del(){
+       document.querySelector('#carrinho').innerHTML = '';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="nome" type="text" placeholder="Nome">
+  <button id="cadastrar">Cadastrar</button>
+  <ul id="lista"></ul>
+
+  <script>
+    let contatos = [];
+    const nome = document.querySelector("#nome");
+    const lista  = document.getElementById("lista");
+    const botao = document.getElementById("cadastrar");
+      
+    botao.addEventListener("click", cadastrarContato);
+
+    function cadastrarContato(){
+      let n=nome.value;
+      if(n === ""){
+        alert("Preencha os campos!");
+        return;
+      }
+      let contato = {
+        nome: n,
+      
+      };
+      
+      contatos.push(contato);
+      
+      mostrarContatos();
+      nome.value = "";
+    }
+    function mostrarContatos(){
+      lista.innerHTML = "";
+      contatos.forEach(function(contato){
+      let item = document.createElement("li");
+      item.textContent = contato.nome;
+      lista.appendChild(item);
+      });
+    }
+    
+    
+  </script>
+</body>
+</html>
